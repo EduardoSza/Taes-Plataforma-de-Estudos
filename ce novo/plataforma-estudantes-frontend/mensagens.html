@@ -1,0 +1,74 @@
+<!-- Página Mensagens HTML -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .message-thread {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .new-message {
+            margin-top: 20px;
+        }
+        .message-sent {
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mensagens</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Feed</a></li>
+                <li><a href="conectar.html">Conectar</a></li>
+                <li><a href="notificacoes.html">Notificações</a></li>
+                <li><a href="perfil.html">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="messages-list">
+        <h2>Conversas</h2>
+        <div class="message-thread" onclick="openConversation('Lucas Silva')">
+            <p>Lucas Silva</p>
+            <button class="delete-button" onclick="deleteConversation(event, 'Lucas Silva')">Apagar</button>
+        </div>
+        <div class="message-thread" onclick="openConversation('Maria Oliveira')">
+            <p>Maria Oliveira</p>
+            <button class="delete-button" onclick="deleteConversation(event, 'Maria Oliveira')">Apagar</button>
+        </div>
+        <div class="message-thread" onclick="openConversation('João Santos')">
+            <p>João Santos</p>
+            <button class="delete-button" onclick="deleteConversation(event, 'João Santos')">Apagar</button>
+        </div>
+    </div>
+
+    <div class="new-message">
+        <h2>Nova Mensagem</h2>
+        <input type="text" id="recipient" placeholder="Nome do estudante" />
+        <textarea id="message-content" placeholder="Escreva sua mensagem..."></textarea>
+        <button onclick="sendMessage()">Enviar</button>
+        <p class="message-sent" id="sent-message">Mensagem enviada!</p>
+    </div>
+    <script src="scripts.js">
+    </script>
+</body>
+</html>

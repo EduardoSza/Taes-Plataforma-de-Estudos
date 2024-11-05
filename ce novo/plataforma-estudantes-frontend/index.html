@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed de Atividades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Feed de Atividades</h1>
+        <nav>
+            <ul>
+                <li><a href="conectar.html">Conectar</a></li>
+                <li><a href="notificacoes.html">Notificações</a></li>
+                <li><a href="mensagens.html">Mensagens</a></li>
+                <li><a href="perfil.html">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="posts">
+        <!-- Botões para compartilhar material e criar projeto colaborativo -->
+        <button onclick="showForm('formModal')" style="margin-bottom: 20px;">Compartilhar Material</button>
+        <button onclick="showForm('formCreateProject')" style="margin-bottom: 20px;">Criar Projeto Colaborativo</button>
+
+
+        <h2>Publicações de Outros Estudantes</h2>
+
+        <!-- Modal para compartilhar material -->
+        <div id="formModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeForm('formModal')">&times;</span>
+                <h2>Compartilhar Material</h2>
+                <form>
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" required>
+                    <label for="description">Descrição:</label>
+                    <textarea id="description" required></textarea>
+                    <label for="file">Upload de Arquivos:</label>
+                    <input type="file" id="file" required>
+                    <button type="submit">Publicar</button>
+                </form>
+            </div>
+        </div>
+          <!-- Modal para criar projeto colaborativo -->
+        <div id="formCreateProject" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeForm('formCreateProject')">&times;</span>
+                <h2>Criar Projeto Colaborativo</h2>
+                <form>
+                    <label for="projectName">Nome do Projeto:</label>
+                    <input type="text" id="projectName" required>
+
+                    <label for="projectDescription">Descrição do Projeto:</label>
+                    <textarea id="projectDescription" required></textarea>
+
+                    <label for="projectContent">Conteúdos:</label>
+                    <input type="file" id="projectContent" multiple required>
+
+                    <label for="addStudents">Adicionar Estudantes:</label>
+                    <input type="text" id="addStudents" placeholder="Digite o nome ou email dos estudantes">
+                    <small>Separe os nomes ou e-mails com vírgulas.</small>
+
+                    <button type="submit">Criar Projeto</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Postagem fictícia -->
+        <div class="post">
+            <h3>Como resolver problemas complexos de matemática</h3>
+            <p>Publicado por João Silva em 20/10/2024</p>
+            <p>Este material apresenta estratégias para abordar problemas complexos de matemática, com exemplos práticos e dicas úteis.</p>
+            <div class="post-buttons">
+                <button onclick="viewMaterial()">Ver Conteúdo</button>
+                <button onclick="showRatingForm(this)">Avaliar</button>
+                <button onclick="showCommentForm(this)">Comentar</button>
+                <button onclick="toggleComments(this)">Ver Todos os Comentários</button>
+            </div>
+
+            <!-- Div para exibir comentários -->
+            <div class="comments-section" style="display: none; margin-top: 10px;"></div>
+
+            <!-- Div para exibir avaliações -->
+            <div class="ratings-section" style="margin-top: 10px;"></div>
+
+            <!-- Formulário para comentário -->
+            <div class="comment-form" style="display:none; margin-top: 10px;">
+                <textarea placeholder="Escreva seu comentário..."></textarea>
+                <button onclick="submitComment(this)">Enviar Comentário</button>
+            </div>
+
+            <!-- Formulário de avaliação -->
+            <div class="rating-form" style="display:none; margin-top: 10px;">
+                <label>Avalie:</label>
+                <select>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="1">⭐</option>
+                </select>
+                <button onclick="submitRating(this)">Enviar Avaliação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js">
+        // Funções para mostrar ou ocultar formulários
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Meu Perfil</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Feed</a></li>
+                <li><a href="notificacoes.html">Notificações</a></li>
+                <li><a href="mensagens.html">Mensagens</a></li>
+                <li><a href="perfil.html">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dados do Perfil -->
+     <main>
+        <section class="profile-info">
+            <h2>Bem-vindo, <span id="userName">João Silva</span></h2>
+            <p><strong>Universidade:</strong> <span id="userUniversity">Universidade Federal do Rio de Janeiro</span></p>
+            <p><strong>Curso:</strong> <span id="userCourse">Engenharia de Software</span></p>
+            <button onclick="showForm('updateForm')">Atualizar Perfil</button>
+        </section>
+     </main>
+    
+
+    <!-- Formulário de Atualização -->
+    <div id="updateForm" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm('updateForm')">&times;</span>
+            <h2>Atualizar Perfil</h2>
+            <form id="profileUpdateForm">
+                <label for="updateName">Nome:</label>
+                <input type="text" id="updateName" placeholder="Nome Completo" required>
+
+                <label for="updateUniversity">Universidade:</label>
+                <input type="text" id="updateUniversity" placeholder="Universidade (opcional)">
+
+                <label for="updateCourse">Curso:</label>
+                <input type="text" id="updateCourse" placeholder="Curso (opcional)">
+
+                <button type="button" onclick="saveProfile()">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="scripts.js">
+        // Funções para abrir e fechar o formulário
+    </script>
+</body>
+</html>

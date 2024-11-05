@@ -1,0 +1,86 @@
+<!-- Página Notificações HTML -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .notification {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .message {
+            color: green;
+            display: none; /* Inicialmente oculto */
+            margin-top: 10px;
+        }
+        .notification-actions {
+            display: none; /* Inicialmente oculto */
+        }
+        .manage-notifications {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Notificações</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Feed</a></li>
+                <li><a href="conectar.html">Conectar</a></li>
+                <li><a href="mensagens.html">Mensagens</a></li>
+                <li><a href="perfil.html">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="manage-notifications">
+        <h2>Gerenciar Notificações</h2>
+        <button id="toggle-notifications" onclick="toggleNotifications()">Ativar Notificações</button>
+        <p id="status-message"></p>
+    </div>
+
+    <div class="notifications-list">
+        <h2>Interações</h2>
+        <div class="notification" onclick="manageNotification(this)">
+            <p><strong>Lucas Silva</strong> avaliou seu material.</p>
+            <div class="notification-actions">
+                <button onclick="viewInteraction(this)">Ver</button>
+                <button onclick="deleteNotification(this)">Apagar</button>
+                <p class="message"></p>
+            </div>
+        </div>
+
+        <div class="notification" onclick="manageNotification(this)">
+            <p><strong>Maria Oliveira</strong> comentou em seu material.</p>
+            <div class="notification-actions">
+                <button onclick="viewInteraction(this)">Ver</button>
+                <button onclick="deleteNotification(this)">Apagar</button>
+                <p class="message"></p>
+            </div>
+        </div>
+
+        <div class="notification" onclick="manageNotification(this)">
+            <p><strong>Lucas Silva</strong> respondeu ao seu comentário.</p>
+            <div class="notification-actions">
+                <button onclick="viewInteraction(this)">Ver</button>
+                <button onclick="deleteNotification(this)">Apagar</button>
+                <p class="message"></p>
+            </div>
+        </div>
+
+        <!-- Adicione mais notificações conforme necessário -->
+    </div>
+
+
+    <script src="scripts.js">
+    </script>
+</body>
+</html>

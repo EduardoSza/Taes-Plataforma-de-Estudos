@@ -1,0 +1,131 @@
+<!-- Página Conectar HTML -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .message {
+            color: green;
+            display: none; /* Inicialmente oculto */
+            margin-top: 10px;
+        }
+        .students-list {
+            display: none; /* Inicialmente oculto */
+        }
+        
+        /* CSS para estilos básicos */
+        .search-bar, .filters {
+            margin: 15px 0;
+            padding: 10px;
+
+        }
+
+        .student-list {
+            margin-top: 10px;
+        }
+
+        .student {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .connected {
+            background-color: green;
+            color: white;
+        }
+
+        .message-status {
+            color: green;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conectar</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Feed</a></li>
+                <li><a href="notificacoes.html">Notificações</a></li>
+                <li><a href="mensagens.html">Mensagens</a></li>
+                <li><a href="perfil.html">Meu Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Pesquisar estudantes ou materiais...">
+        <button onclick="search()">Pesquisar</button>
+        
+        <!-- Filtros -->
+        <div id="filters" class="filters" style="display: none; margin-top: 10px;">
+            <label for="interesse">Interesse:</label>
+            <select id="interesse">
+                <option value="">Selecione um curso ou matéria...</option>
+                <option value="matematica">Matemática</option>
+                <option value="programacao">Programação</option>
+                <option value="quimica">Química</option>
+                <option value="fisica">Física</option>
+            </select>
+            
+            <label for="nivel">Nível:</label>
+            <select id="nivel">
+                <option value="">Selecione um nível...</option>
+                <option value="basico">Básico</option>
+                <option value="intermediario">Intermediário</option>
+                <option value="avancado">Avançado</option>
+                <option value="periodo1">Período 1</option>
+                <option value="periodo2">Período 2</option>
+            </select>
+            <button onclick="applyFilters()">Aplicar Filtros</button>
+        </div>
+
+<button onclick="toggleFilters()">Exibir Filtros</button>
+
+    </div>
+
+    <div class="students-list" id="studentsList">
+        <h2>Estudantes Encontrados</h2>
+        <div class="student" id="student1">
+            <h3>Lucas Silva</h3>
+            <h5>Engenharia de Software</h5>
+            <button onclick="toggleConnection(this)">Conectar</button>
+            <button onclick="showMessageForm(this)">Enviar Mensagem</button>
+
+            <!-- Formulário de Mensagem -->
+            <div class="message-form" style="display:none; margin-top: 10px;">
+                <textarea placeholder="Escreva sua mensagem..."></textarea>
+                <button onclick="sendMessage(this)">Enviar</button>
+            </div>
+            <p class="message"></p>
+        </div>
+
+        <div class="student" id="student2">
+            <h3>Maria Oliveira</h3>
+            <button onclick="toggleConnection(this)">Conectar</button>
+            <button onclick="showMessageForm(this)">Enviar Mensagem</button>
+
+            <!-- Formulário de Mensagem -->
+            <div class="message-form" style="display:none; margin-top: 10px;">
+                <textarea placeholder="Escreva sua mensagem..."></textarea>
+                <button onclick="sendMessage(this)">Enviar</button>
+            </div>
+            <p class="message"></p>
+        </div>
+
+        <!-- Adicione mais estudantes conforme necessário -->
+    </div>
+
+
+    <script src="scripts.js">
+    </script>
+
+</body>
+</html>

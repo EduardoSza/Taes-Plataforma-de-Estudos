@@ -1,0 +1,310 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #3a6ea5;
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+button:hover {
+    background-color: #005bb5;
+}
+
+/* Estilos para o contêiner de postagens */
+.posts {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Estilo das postagens */
+.post {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post h3 {
+    margin-top: 0;
+    color: #0073e6;
+}
+
+.post p {
+    margin: 5px 0;
+}
+
+.post-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Estilo das seções de comentários e avaliações */
+.comments-section, .ratings-section, .comment-form, .rating-form {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Estilo do modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-content form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+.modal-content form input[type="text"],
+.modal-content form textarea,
+.modal-content form input[type="file"],
+.modal-content form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.comment {
+    background-color: #f1f1f1;
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Seção de Pesquisa */
+.search-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-section input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    max-width: 400px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-section button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #3a6ea5;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #345d8c;
+}
+
+/* Filtros */
+#filters {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#filters label {
+    font-weight: bold;
+}
+
+#filters select,
+#filters button {
+    padding: 5px;
+    border-radius: 4px;
+}
+
+#filters button {
+    background-color: #3a6ea5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#filters button:hover {
+    background-color: #345d8c;
+}
+
+/* Lista de Estudantes */
+.students-list {
+    display: block;
+    padding: 20px;
+}
+
+.student {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
+.student h3 {
+    margin: 0;
+    color: #3a6ea5;
+}
+
+.student h5 {
+    margin: 0;
+    font-weight: normal;
+    color: #666;
+}
+
+.student button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.student button:first-of-type {
+    background-color: #3a6ea5;
+    color: #fff;
+}
+
+.student button:hover {
+    opacity: 0.8;
+}
+
+/* Formulário de Mensagem */
+.message-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.message-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.message-form button {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: #3a6ea5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.message-form button:hover {
+    background-color: #345d8c;
+}
+
+/* Mensagem de Status */
+.message {
+    color: green;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Conectado */
+.connected {
+    background-color: green;
+    color: white;
+}

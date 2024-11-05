@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Connect Student</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .site-name {
+            text-align: right;
+            margin-right: 20px;
+        }
+        .site-name h1 {
+            font-size: 60px;
+            font-weight:lighter;
+            margin: 0;
+            color: #007bff;
+        }
+        .site-name h3 {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0 0 0;
+        }
+        .register-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .register-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .register-container button:hover {
+            background-color: #0056b3;
+        }
+        .link {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="site-name">
+            <h1>Connect Student</h1>
+            <h3>A Plataforma de Conexão e Colaboração Acadêmica</h3>
+        </div>
+        <div class="register-container">
+            <h2>Cadastro</h2>
+            <input type="text" id="name" placeholder="Nome completo" required>
+            <input type="text" id="placeOfStudy" placeholder="Lugar onde estuda (opcional)">
+            <input type="text" id="course" placeholder="Curso (opcional)">
+            <input type="text" id="gradeOrPeriod" placeholder="Período ou Série (opcional)">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button onclick="createUser()">Cadastrar</button>
+            <p class="error-message" id="error-message" style="color:red; display:none;">Preencha todos os campos obrigatórios!</p>
+        </div>
+    </div>
+
+    <script>
+        // Função para criar um novo usuário
+        async function createUser() {
+            const username = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Verifica se os campos obrigatórios estão preenchidos
+            if (username && email && password) {
+                const response = await fetch('http://localhost:3000/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, email, password }),
+                });
+
+                if (response.ok) {
+                    // Limpa os campos após a criação bem-sucedida
+                    document.getElementById('name').value = ''; 
+                    document.getElementById('email').value = ''; 
+                    document.getElementById('password').value = ''; 
+                    errorMessage.style.display = 'none'; // Esconde a mensagem de erro
+                } else {
+                    console.error('Erro ao criar usuário');
+                }
+            } else {
+                // Exibe mensagem de erro
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

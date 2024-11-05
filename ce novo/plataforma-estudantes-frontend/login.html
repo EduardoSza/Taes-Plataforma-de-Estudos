@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Connect Student</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-left: 20px;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+        .site-name {
+            text-align: right;
+            margin-right: 20px;
+        }
+        .site-name h1 {
+            font-size: 60px;
+            font-weight: lighter;
+            margin: 0;
+            color: #007bff;
+        }
+        .site-name h3 {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0 0 0;
+        }
+        .link {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .additional-links {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="site-name">
+            <h1>Connect Student</h1>
+            <h3>A Plataforma de Conexão e Colaboração Acadêmica</h3>
+        </div>
+        <div class="login-container">
+            <h2>Login</h2>
+            <input type="text" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button onclick="login()">Entrar</button>
+            <p class="error-message" id="error-message" style="display: none;">Credenciais inválidas!</p>
+            <div class="additional-links">
+                <a class="link" href="#" onclick="forgotPassword()">Esqueceu a senha?</a><br>
+                <a class="link" href="cadastro.html">Criar conta</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Verificação para garantir que os campos não estão vazios
+            if (!email || !password) {
+                errorMessage.textContent = 'Por favor, preencha todos os campos.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (response.ok) {
+                    // Redirecionar para a página inicial após login bem-sucedido
+                    window.location.href = "index.html"; // Substitua pelo caminho da sua página inicial
+                } else {
+                    // Exibir mensagem de erro
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Erro ao realizar login:', error);
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function forgotPassword() {
+            alert("Recuperar senha funcionalidade não implementada ainda.");
+        }
+    </script>
+</body>
+</html>
