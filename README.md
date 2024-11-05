@@ -1,16 +1,19 @@
 Plataforma de Estudos - TAES
 📚 Descrição
+
 Esta aplicação é uma plataforma de estudos desenvolvida como parte da disciplina Tópicos Avançados em Engenharia de Software (TAES) do curso de Engenharia de Software na Universidade Federal do Amazonas (UFAM). O projeto foca na criação de um ambiente colaborativo, onde usuários podem compartilhar materiais de estudo, agendar reuniões e colaborar em projetos.
 
 👥 Equipe de Desenvolvimento: Eduardo Souza, Tiago Pimentel, Melissa Abreu.
 
 🛠️ Tecnologias Utilizadas
+
 Front-end: HTML, CSS, JavaScript
 Back-end: Node.js com Express
 Banco de Dados: PostgreSQL
 Versionamento de Código: Git/GitHub
 
 📝 Funcionalidades
+
 Cadastro de Usuários: Interface para registro de usuários, armazenando dados no banco de dados.
 Materiais de Estudo: Permite aos usuários criar e compartilhar materiais de estudo.
 Comentários: Sistema de comentários em cada material para discussão colaborativa.
