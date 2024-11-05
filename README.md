@@ -45,4 +45,5 @@ Abra o front-end:
 Acesse a interface pelo navegador em http://localhost:3000.
 
 📈 Status do Projeto
+
 O projeto está em desenvolvimento ativo. As próximas etapas incluem a integração de novas funcionalidades e ajustes na interface para aprimorar a experiência do usuário.
