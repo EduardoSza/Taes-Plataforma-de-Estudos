@@ -115,7 +115,8 @@
                     // Limpa os campos após a criação bem-sucedida
                     document.getElementById('name').value = ''; 
                     document.getElementById('email').value = ''; 
-                    document.getElementById('password').value = ''; 
+                    document.getElementById('password').value = '';
+                    window.location.href = "login.html";
                     errorMessage.style.display = 'none'; // Esconde a mensagem de erro
                 } else {
                     console.error('Erro ao criar usuário');
