@@ -263,17 +263,12 @@ function saveProfile() {
 // Função para buscar e exibir usuários
 async function fetchUsers() {
     try {
-        const response = await fetch('http://localhost:3000/users'); // URL absoluta
+        const response = await fetch('http://localhost:3000/api/users'); // Corrigir a URL
+        if (!response.ok) throw new Error('Erro ao buscar usuários');
         const users = await response.json();
-        const userList = document.getElementById('userList');
-        userList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
-        users.forEach(user => {
-            const li = document.createElement('li');
-            li.textContent = user.username;
-            userList.appendChild(li);
-        });
-    } catch (error) {
-        console.error('Erro ao buscar usuários:', error);
+        console.log(users); // Verificar os dados recebidos
+    } catch (err) {
+        console.error('Erro ao buscar usuários:', err);
     }
 }
 
