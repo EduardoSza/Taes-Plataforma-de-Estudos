@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feed de Atividades</title>
     <link rel="stylesheet" href="styles.css">
+    <div id="materials-list"></div>
+    <script src="scripts-materiais.js"></script>
+    <div id="projects-list"></div>
+    <script src="scripts-projetos.js"></script>
+    <div id="comments-list"></div>
+    <script src="scripts-comentarios.js"></script>
 </head>
 <body>
     <header>
@@ -32,15 +38,15 @@
             <div class="modal-content">
                 <span class="close" onclick="closeForm('formModal')">&times;</span>
                 <h2>Compartilhar Material</h2>
-                <form>
+                <form id="materialForm" enctype="multipart/form-data">
                     <label for="title">Título:</label>
-                    <input type="text" id="title" required>
+                    <input type="text" id="title" name="title" required>
                     <label for="description">Descrição:</label>
-                    <textarea id="description" required></textarea>
-                    <label for="file">Upload de Arquivos:</label>
-                    <input type="file" id="file" required>
-                    <button type="submit">Publicar</button>
-                </form>
+                    <textarea id="description" name="description" required></textarea>
+                    <label for="file">Upload de Arquivo:</label>
+                    <input type="file" id="file" name="file" required>
+                    <button type="button" onclick="uploadMaterial()">Publicar</button>
+                </form>                
             </div>
         </div>
           <!-- Modal para criar projeto colaborativo -->
@@ -68,7 +74,7 @@
         </div>
 
         <!-- Postagem fictícia -->
-        <div class="post">
+        <div class="post" data-material-id="1"> <!-- Substitua "1" pelo ID real do material -->
             <h3>Como resolver problemas complexos de matemática</h3>
             <p>Publicado por João Silva em 20/10/2024</p>
             <p>Este material apresenta estratégias para abordar problemas complexos de matemática, com exemplos práticos e dicas úteis.</p>
@@ -78,20 +84,12 @@
                 <button onclick="showCommentForm(this)">Comentar</button>
                 <button onclick="toggleComments(this)">Ver Todos os Comentários</button>
             </div>
-
-            <!-- Div para exibir comentários -->
             <div class="comments-section" style="display: none; margin-top: 10px;"></div>
-
-            <!-- Div para exibir avaliações -->
             <div class="ratings-section" style="margin-top: 10px;"></div>
-
-            <!-- Formulário para comentário -->
             <div class="comment-form" style="display:none; margin-top: 10px;">
                 <textarea placeholder="Escreva seu comentário..."></textarea>
                 <button onclick="submitComment(this)">Enviar Comentário</button>
             </div>
-
-            <!-- Formulário de avaliação -->
             <div class="rating-form" style="display:none; margin-top: 10px;">
                 <label>Avalie:</label>
                 <select>
@@ -103,7 +101,7 @@
                 </select>
                 <button onclick="submitRating(this)">Enviar Avaliação</button>
             </div>
-        </div>
+        </div>        
     </div>
 
     <script src="scripts.js">
